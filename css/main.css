@@ -2204,6 +2204,7 @@ footer .copyright span:last-child::after {
   transition: all 0.3s ease-in-out;
 }
 #go-top a i {
+  background-color: #00ced1;
   font-size: 1.6rem;
   line-height: inherit;
 }
