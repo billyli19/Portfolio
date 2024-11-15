@@ -1,0 +1,105 @@
+@use "../abstracts/index" as vars;
+@use "sass:color";
+@use "sass:map";
+
+/* PROJECTS STYLING */
+.project {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: map.get(vars.$gap-sizes, medium);
+  align-self: stretch;
+
+  &__item,
+  &__content,
+  &__thumbnail {
+    display: flex;
+    flex-direction: column;
+    gap: map.get(vars.$gap-sizes, small);
+    align-self: stretch;
+  }
+
+  &__item {
+    padding: map.get(vars.$spacing-sizes, medium);
+    border-radius: vars.$border-radius--small;
+    background: vars.$color--highlights;
+  }
+
+  &__thumbnail {
+    align-items: flex-start;
+    flex: 1 0 0;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
+
+  &__title,
+  &__description {
+    align-self: stretch;
+    font-size: vars.$font-size--small;
+  }
+
+  &__title {
+    font-weight: vars.$font-weight--bold;
+  }
+
+  &__description {
+    text-align: justify;
+    font-weight: vars.$font-weight--normal;
+  }
+}
+
+.toggle-more {
+  display: none;
+}
+
+/* Initially hide more projects */
+.more-projects {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: map.get(vars.$gap-sizes, medium);
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.toggle-more:checked ~ .more-projects {
+  display: flex;
+}
+
+.toggle-label {
+  display: flex;
+  padding: map.get(vars.$spacing-sizes, small)
+    map.get(vars.$spacing-sizes, medium);
+  justify-content: center;
+  align-items: center;
+  gap: map.get(vars.$gap-sizes, small);
+  border-radius: vars.$border-radius--medium;
+  background: color.scale(vars.$color--highlights, $lightness: -10%);
+  text-align: justify;
+  font-size: vars.$font-size--small;
+  font-weight: vars.$font-weight--normal;
+  cursor: pointer;
+  margin-top: map.get(vars.$spacing-sizes, small);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: color.scale(vars.$color--highlights, $lightness: -20%);
+  }
+
+  &:before {
+    content: "Show More";
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.toggle-more:checked ~ .toggle-label:before {
+  content: "Show Less";
+}

@@ -1,0 +1,119 @@
+@use "../abstracts/index" as vars;
+@use "../abstracts/mixins";
+@use "sass:map";
+
+/* HEADER STYLING */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: vars.$color--background;
+
+  @include mixins.tablet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 0;
+    align-self: stretch;
+  }
+
+  &__navigation {
+    display: none;
+
+    @include mixins.tablet {
+      display: flex;
+      width: 100%;
+      height: vars.$header-height;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    &__button {
+      color: vars.$color--accents;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: vars.$font-size--medium;
+      width: vars.$asset-width;
+      height: vars.$asset-height;
+      border-radius: vars.$border-radius--small;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        flex-shrink: 0;
+        transform: scale(1.1);
+        background: vars.$color--highlights;
+      }
+
+      &:active {
+        transform: scale(0.95);
+        background: vars.$color--highlights;
+      }
+    }
+  }
+
+  &__branding {
+    display: flex;
+    padding: map.get(vars.$spacing-sizes, xlarge);
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: vars.$color--background;
+
+    @include mixins.tablet {
+      display: none;
+    }
+  }
+
+  &__title {
+    text-align: justify;
+    font-family: vars.$font-family--secondary;
+    font-size: vars.$font-size--medium;
+    font-weight: vars.$font-weight--normal;
+  }
+
+  &__theme__button.material-symbols-outlined {
+    font-size: vars.$font-size--medium;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background-color: vars.$color--highlights;
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    @include mixins.tablet {
+      font-size: 24px;
+      color: vars.$color--accents;
+      width: vars.$asset-width;
+      height: vars.$asset-height;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        flex-shrink: 0;
+        transform: scale(1.1);
+        background: vars.$color--highlights;
+        border-radius: vars.$border-radius--small;
+      }
+
+      &:active {
+        transform: scale(0.95);
+        background: vars.$color--highlights;
+        border-radius: vars.$border-radius--small;
+      }
+    }
+  }
+}
