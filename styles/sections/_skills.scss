@@ -1,0 +1,52 @@
+@use "../abstracts/index" as vars;
+@use "sass:map";
+
+/* SKILLS STYLING */
+.skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: map.get(vars.$gap-sizes, medium);
+  align-self: stretch;
+
+  &__content,
+  &__card,
+  &__icon {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+
+  &__content {
+    gap: map.get(vars.$gap-sizes, medium);
+  }
+
+  &__card {
+    padding: map.get(vars.$spacing-sizes, medium);
+    align-items: flex-start;
+    gap: map.get(vars.$gap-sizes, xsmall);
+    border-radius: vars.$border-radius--small;
+    background: vars.$color--highlights;
+  }
+
+  &__icon {
+    gap: map.get(vars.$gap-sizes, xsmall);
+  }
+
+  &__title,
+  &__description {
+    align-self: stretch;
+    font-size: vars.$font-size--small;
+    line-height: normal;
+  }
+
+  &__title {
+    font-weight: vars.$font-weight--bold;
+  }
+
+  &__description {
+    color: vars.$color--text--secondary;
+    font-weight: vars.$font-weight--normal;
+  }
+}
