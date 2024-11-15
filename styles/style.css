@@ -520,11 +520,15 @@ footer {
 .project__thumbnail {
   align-items: flex-start;
   flex: 1 0 0;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
 }
-.project__thumbnail:hover {
-  filter: grayscale(0%);
+@media (min-width: 1024px) {
+  .project__thumbnail {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+  }
+  .project__thumbnail:hover {
+    filter: grayscale(0%);
+  }
 }
 .project__title, .project__description {
   align-self: stretch;
