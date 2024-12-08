@@ -1,6 +1,4 @@
-// Ignore Generated CSS files
-/styles/*.css
-/styles/*.css.map
+
 **/*.DS_Store
 *.DS_Store
 /build/css
