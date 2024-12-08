@@ -13,6 +13,7 @@ html,
 body {
   height: 100%;
   scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 main {
@@ -22,49 +23,54 @@ main {
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
-  gap: map.get(vars.$gap-sizes, large);
-  background-color: vars.$color--primary;
-  padding: 0 map.get(vars.$spacing-sizes, xlarge);
+  gap: vars.getSizing(xlarge, vars.$gap-scale);
+  background-color: vars.$color--background;
+  padding: 0 vars.getSizing(xlarge, vars.$spacing-scale);
   padding-top: calc(
-    #{map.get(vars.$spacing-sizes, xlarge)} + vars.$header-height
+    #{vars.getSizing(xlarge, vars.$spacing-scale)} + vars.$header-height
   );
 
   // Tablet and Desktop breakpoints
   @include mixins.tablet {
     padding: 0
-      calc(#{map.get(vars.$spacing-sizes, xlarge)} + vars.$padding--tablet);
+      calc(
+        #{vars.getSizing(xlarge, vars.$spacing-scale)} + vars.$padding--tablet
+      );
     padding-top: calc(
-      #{map.get(vars.$spacing-sizes, xlarge)} + vars.$header-height
+      #{vars.getSizing(xlarge, vars.$spacing-scale) + vars.$header-height}
     );
   }
 
   @include mixins.desktop--small {
     padding: 0
       calc(
-        #{map.get(vars.$spacing-sizes, xlarge)} + vars.$padding-desktop--small
+        #{vars.getSizing(xlarge, vars.$spacing-scale)} + vars.$padding-desktop--small
       );
+
     padding-top: calc(
-      #{map.get(vars.$spacing-sizes, xlarge)} + vars.$header-height
+      #{vars.getSizing(xlarge, vars.$spacing-scale)} + vars.$header-height
     );
   }
 
   @include mixins.desktop--medium {
     padding: 0
       calc(
-        #{map.get(vars.$spacing-sizes, xlarge)} + vars.$padding-desktop--medium
+        #{vars.getSizing(xlarge, vars.$spacing-scale)} + vars.$padding-desktop--medium
       );
+
     padding-top: calc(
-      #{map.get(vars.$spacing-sizes, xlarge)} + vars.$header-height
+      #{vars.getSizing(xlarge, vars.$spacing-scale)} + vars.$header-height
     );
   }
 
   @include mixins.desktop--large {
     padding: 0
       calc(
-        #{map.get(vars.$spacing-sizes, xlarge)} + vars.$padding-desktop--large
+        #{vars.getSizing(xlarge, vars.$spacing-scale)} + vars.$padding-desktop--large
       );
+
     padding-top: calc(
-      #{map.get(vars.$spacing-sizes, xlarge)} + vars.$header-height
+      #{vars.getSizing(xlarge, vars.$spacing-scale)} + vars.$header-height
     );
   }
 }
@@ -75,7 +81,6 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding-top: (#{vars.$dynamic-padding-top} + vars.$header-height);
   padding-bottom: vars.$dynamic-padding-bottom;
 
@@ -91,7 +96,7 @@ section {
 }
 
 .section__header {
-  color: vars.$color--quaternary;
+  color: vars.$color--text--primary;
   text-align: justify;
   font-family: vars.$font-family--secondary;
   font-size: vars.$font-size--large;

@@ -57,7 +57,7 @@
 
   &__branding {
     display: flex;
-    padding: map.get(vars.$spacing-sizes, xlarge);
+    padding: vars.getSizing(xlarge, vars.$spacing-scale);
     justify-content: space-between;
     align-items: center;
     width: 100%;

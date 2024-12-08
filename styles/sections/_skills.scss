@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: map.get(vars.$gap-sizes, medium);
+  gap: vars.getSizing(large, vars.$gap-scale);
   align-self: stretch;
 
   &__content,
@@ -19,19 +19,19 @@
   }
 
   &__content {
-    gap: map.get(vars.$gap-sizes, medium);
+    gap: vars.getSizing(large, vars.$gap-scale);
   }
 
   &__card {
-    padding: map.get(vars.$spacing-sizes, medium);
+    padding: vars.getSizing(medium, vars.$spacing-scale);
     align-items: flex-start;
-    gap: map.get(vars.$gap-sizes, xsmall);
+    gap: vars.getSizing(small, vars.$gap-scale);
     border-radius: vars.$border-radius--small;
     background: vars.$color--highlights;
   }
 
   &__icon {
-    gap: map.get(vars.$gap-sizes, xsmall);
+    gap: vars.getSizing(small, vars.$gap-scale);
   }
 
   &__title,

@@ -9,14 +9,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: map.get(vars.$gap-sizes, medium);
+  gap: vars.getSizing(large, vars.$gap-scale);
   align-self: stretch;
 
   &__item,
   &__sub-job {
     display: flex;
     align-items: flex-start;
-    gap: map.get(vars.$gap-sizes, xsmall);
+    gap: vars.getSizing(small, vars.$gap-scale);
     align-self: stretch;
   }
 
@@ -33,18 +33,18 @@
 
     @include mixins.tablet {
       display: flex;
-      gap: map.get(vars.$gap-sizes, medium);
+      gap: vars.getSizing(large, vars.$gap-scale);
       min-height: 0;
-      padding: map.get(vars.$spacing-sizes, medium) 0;
+      padding: vars.getSizing(medium, vars.$spacing-scale) 0;
     }
   }
 
-  &__content,
   &__sub-jobs-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: map.get(vars.$gap-sizes, small);
+    gap: vars.getSizing(medium, vars.$gap-scale);
+
     flex: 1 0 0;
   }
 
@@ -101,17 +101,17 @@
 
     &-label {
       display: flex;
-      padding: map.get(vars.$spacing-sizes, small)
-        map.get(vars.$spacing-sizes, medium);
+      padding: vars.getSizing(small, vars.$spacing-scale)
+        vars.getSizing(medium, vars.$spacing-scale);
       justify-content: center;
       align-items: center;
-      gap: map.get(vars.$gap-sizes, small);
+      gap: vars.getSizing(medium, vars.$gap-scale);
       border-radius: vars.$border-radius--medium;
       background: color.scale(vars.$color--highlights, $lightness: -10%);
       font-size: vars.$font-size--small;
       font-weight: vars.$font-weight--normal;
       cursor: pointer;
-      margin-top: map.get(vars.$spacing-sizes, small);
+      margin-top: vars.getSizing(small, vars.$spacing-scale);
       transition: background-color 0.3s ease, transform 0.3s ease;
 
       &:before {
