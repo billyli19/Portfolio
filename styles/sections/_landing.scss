@@ -8,17 +8,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: map.get(vars.$gap-sizes, large);
+  gap: vars.getSizing(xlarge, vars.$gap-scale);
   flex: 1 0 0;
   align-self: stretch;
 
   &__content,
   &__description {
     display: flex;
-    padding: map.get(vars.$spacing-sizes, large);
+    padding: vars.getSizing(large, vars.$spacing-scale);
     flex-direction: column;
     align-items: center;
-    gap: map.get(vars.$gap-sizes, large);
+    gap: vars.getSizing(xlarge, vars.$gap-scale);
     flex: 1 0 0;
     align-self: stretch;
     justify-content: space-evenly;
@@ -26,14 +26,14 @@
 
   &__description {
     justify-content: center;
-    gap: map.get(vars.$gap-sizes, medium);
+    gap: vars.getSizing(large, vars.$gap-scale);
   }
 
   &__image {
     align-self: stretch;
 
     @include mixins.tablet {
-      padding: 0 calc(5 * map.get(vars.$spacing-sizes, xlarge));
+      padding: 0 calc(5 * vars.getSizing(xlarge, vars.$spacing-scale));
     }
   }
 

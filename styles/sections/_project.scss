@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: map.get(vars.$gap-sizes, medium);
+  gap: vars.getSizing(large, vars.$gap-scale);
   align-self: stretch;
 
   &__item,
@@ -17,12 +17,12 @@
   &__thumbnail {
     display: flex;
     flex-direction: column;
-    gap: map.get(vars.$gap-sizes, small);
+    gap: vars.getSizing(medium, vars.$gap-scale);
     align-self: stretch;
   }
 
   &__item {
-    padding: map.get(vars.$spacing-sizes, medium);
+    padding: vars.getSizing(medium, vars.$spacing-scale);
     border-radius: vars.$border-radius--small;
     background: vars.$color--highlights;
   }
@@ -65,7 +65,7 @@
   display: none;
   flex-direction: column;
   justify-content: center;
-  gap: map.get(vars.$gap-sizes, medium);
+  gap: vars.getSizing(large, vars.$gap-scale);
   flex-shrink: 0;
   align-self: stretch;
 }
@@ -76,18 +76,18 @@
 
 .toggle-label {
   display: flex;
-  padding: map.get(vars.$spacing-sizes, small)
-    map.get(vars.$spacing-sizes, medium);
+  padding: vars.getSizing(small, vars.$spacing-scale)
+    vars.getSizing(medium, vars.$spacing-scale);
   justify-content: center;
   align-items: center;
-  gap: map.get(vars.$gap-sizes, small);
+  gap: vars.getSizing(medium, vars.$gap-scale);
   border-radius: vars.$border-radius--medium;
   background: color.scale(vars.$color--highlights, $lightness: -10%);
   text-align: justify;
   font-size: vars.$font-size--small;
   font-weight: vars.$font-weight--normal;
   cursor: pointer;
-  margin-top: map.get(vars.$spacing-sizes, small);
+  margin-top: vars.getSizing(small, vars.$spacing-scale);
   transition: background-color 0.3s ease, transform 0.3s ease;
 
   &:hover {

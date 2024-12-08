@@ -1,0 +1,24 @@
+// BASE UNIT
+$base-unit: 0.3125rem;
+
+$spacing-scale: (
+  small: 1,
+  medium: 2,
+  large: 4,
+  xlarge: 5,
+);
+
+$gap-scale: (
+  small: 1,
+  medium: 2,
+  large: 4,
+  xlarge: 10,
+);
+
+@function getSizing($size, $map) {
+  @if map-has-key($map, $size) {
+    @return map-get($map, $size) * $base-unit;
+  } @else {
+    @return "The size `#{$size}` does not exist in the provided map";
+  }
+}
